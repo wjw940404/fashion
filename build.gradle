@@ -22,7 +22,6 @@ allprojects{
     }
 
     repositories {
-        mavenCentral()
 
         maven {
             name "aliyun"
@@ -33,6 +32,8 @@ allprojects{
             name "oschinaRepo"
             url "http://maven.oschina.net/content/groups/public/"
         }
+
+        mavenCentral()
 
     }
 
