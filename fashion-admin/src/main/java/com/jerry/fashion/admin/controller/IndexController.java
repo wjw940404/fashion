@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping
+@RequestMapping("index")
 public class IndexController {
 
     @GetMapping("hello")
     public Object sayHello() {
         return "Hello!!";
+    }
+
+    @GetMapping("home")
+    public Object home() {
+        return "这里返回首页数据";
     }
 
 }
