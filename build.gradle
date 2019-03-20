@@ -1,6 +1,39 @@
 description "fashion"
 
 allprojects{
+    apply plugin: 'java'
+
     group = 'com.jerry'
     version = '1.0.0'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    if( !!project.properties['resource'] ){
+        if(project.properties['resource'].startsWith("/")){
+            sourceSets.main.resources.srcDirs = [ new File( project.properties['resource'] ) ]
+        }else{
+            sourceSets.main.resources.srcDirs = [ new File(sourceSets.main.resources.srcDirs[0].parent, project.properties['resource'] ) ]
+        }
+    }
+
+
+    ["mappers","static-resources"].each{ folder->
+        sourceSets.main.resources.srcDirs += new File(sourceSets.main.resources.srcDirs[0].parent,folder)
+    }
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            name "aliyun"
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+
+        maven {
+            name "oschinaRepo"
+            url "http://maven.oschina.net/content/groups/public/"
+        }
+
+    }
+
 }
