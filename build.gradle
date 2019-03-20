@@ -1,0 +1,7 @@
+description "fashion"
+
+allprojects{
+    group = 'com.jerry'
+    version = '1.0.0'
+//    sourceCompatibility = '1.8'
+}
